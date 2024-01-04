@@ -4,6 +4,124 @@
   
   
   <entry>
+    <title>phpcms v9后台登陆url地址安全性变更代码示例</title>
+    <link href="/8.html"/>
+    <url>/8.html</url>
+    
+    <content type="html"><![CDATA[<p>PHPCMS V9是一个基于PHP5+MYSQL的开源内容管理系统，采用OOP（面向对象）方式设计，模块化开发，支持站群系统，模板制作，多发布点等功能。</p><span id="more"></span><h2 id="第一步："><a href="#第一步：" class="headerlink" title="第一步："></a>第一步：</h2><p>在网站根目录创建一个文件夹，以后就要通过这个文件夹进入后台登录界面的，所以文件夹名就要取一个不易被人轻易猜到的名称。这里作为演示，我就取为  adminweb 好了。接着，在这个文件夹里新建一个文件index.php，内容为：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-title function_ invoke__">define</span>(<span class="hljs-string">&#x27;PHPCMS_PATH&#x27;</span>, <span class="hljs-title function_ invoke__">realpath</span>(<span class="hljs-title function_ invoke__">dirname</span>(<span class="hljs-keyword">__FILE__</span>) . <span class="hljs-string">&#x27;/..&#x27;</span>) . <span class="hljs-string">&#x27;/&#x27;</span>);<br><span class="hljs-keyword">include</span> PHPCMS_PATH . <span class="hljs-string">&#x27;/phpcms/base.php&#x27;</span>; <span class="hljs-comment">// pc_base::creat_app();</span><br><span class="hljs-variable">$session_storage</span> = <span class="hljs-string">&#x27;session_&#x27;</span> . pc_base :: <span class="hljs-title function_ invoke__">load_config</span>(<span class="hljs-string">&#x27;system&#x27;</span>, <span class="hljs-string">&#x27;session_storage&#x27;</span>);<br>pc_base :: <span class="hljs-title function_ invoke__">load_sys_class</span>(<span class="hljs-variable">$session_storage</span>);<br><span class="hljs-title function_ invoke__">session_start</span>();<br><span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&#x27;right_enter&#x27;</span>] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">unset</span>(<span class="hljs-variable">$session_storage</span>);<br><span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;location:../index.php?m=admin&#x27;</span>);<br></code></pre></td></tr></table></figure><h2 id="第二步："><a href="#第二步：" class="headerlink" title="第二步："></a>第二步：</h2><p>在 phpcms&#x2F;modules&#x2F;admin&#x2F; 文件夹里新建一个文件 MY_index.php，内容为：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-title function_ invoke__">defined</span>(<span class="hljs-string">&#x27;IN_PHPCMS&#x27;</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">exit</span>(<span class="hljs-string">&#x27;No permission resources.&#x27;</span>);<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MY_index</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">index</span> </span>&#123;<br><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span>(<span class="hljs-params"></span>) </span>&#123;<br><span class="hljs-keyword">if</span> (<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&#x27;right_enter&#x27;</span>])) &#123;<br><span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;location:./&#x27;</span>);<br><span class="hljs-keyword">exit</span>;<br>&#125;<br><span class="hljs-built_in">parent</span> :: <span class="hljs-title function_ invoke__">__construct</span>();<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">public_logout</span>(<span class="hljs-params"></span>) </span>&#123;<br><span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&#x27;right_enter&#x27;</span>] = <span class="hljs-number">0</span>;<br><span class="hljs-built_in">parent</span> :: <span class="hljs-title function_ invoke__">public_logout</span>();<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>这样修改，只需要两个地方就可以了，不用分那么多步骤，而且网站后台只能通过 &#x2F;adminweb，这样就不容易被人找到你的后台入口了，这里需要注意的是，如果你用&#x2F;adminweb登录后，你按原来的&#x2F;admin.php  这种方式也能登录了，当然仅限你刚登录的浏览器。</p><h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>如果你觉得这个博客有帮助，并愿意支持它的发展，可以通过以下方式支持我们的创作：<br><img src="/img/index/wxszm.png" alt="微信赞赏码"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>phpcms</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>phpcms V9留言表单标签代码示例</title>
+    <link href="/7.html"/>
+    <url>/7.html</url>
+    
+    <content type="html"><![CDATA[<p>PHPCMS V9是一个基于PHP5+MYSQL的开源内容管理系统，采用OOP（面向对象）方式设计，模块化开发，支持站群系统，模板制作，多发布点等功能。</p><span id="more"></span><p><img src="/./7/53ae33199182479a993651cb247428fd.png"></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/index.php?m=formguide<span class="hljs-symbol">&amp;amp;</span>c=index<span class="hljs-symbol">&amp;amp;</span>a=show<span class="hljs-symbol">&amp;amp;</span>formid=13<span class="hljs-symbol">&amp;amp;</span>siteid=1&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;myform&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;myform&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-field  last_name pd-text required &quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;field-label&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;font-size: 18px; font-weight: bold;&quot;</span>&gt;</span>姓名：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;info[name]&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;80&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-text&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;background-color: #eff4fd;border: 0px;height: 30px;&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;必填&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-field  last_name pd-text required     &quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;field-label&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;font-size: 18px; font-weight: bold;&quot;</span>&gt;</span>电话：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;info[phone]&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;phone&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;80&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-text&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;background-color: #eff4fd;border: 0px;height: 30px;&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;必填&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-field  last_name pd-text required     &quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;field-label&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;font-size: 18px; font-weight: bold;&quot;</span>&gt;</span>留言：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;info[msg]&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;msg&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height: 100px;background-color: #eff4fd;border: 0px;&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;选填&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;submit two-column-submit text-center&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;font-size: 20px;&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;dosubmit&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;dosubmit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;提交留言&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;padding: 5px 20px; color: #35308F;background-color: #fff; font-size: 16px;border-color: #35308F;&quot;</span> &gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure><h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>如果你觉得这个博客有帮助，并愿意支持它的发展，可以通过以下方式支持我们的创作：<br><img src="/img/index/wxszm.png" alt="微信赞赏码"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>phpcms</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Apache与Nginx伪静态规则对比</title>
+    <link href="/6.html"/>
+    <url>/6.html</url>
+    
+    <content type="html"><![CDATA[<p>Apache(音译为阿帕奇)是世界使用排名第一的Web服务器软件。它可以运行在几乎所有广泛使用的计算机平台上，由于其跨平台和安全性被广泛使用，是最流行的Web服务器端软件之一。它快速、可靠并且可通过简单的API扩充，将Perl&#x2F;Python等解释器编译到服务器中。</p><span id="more"></span><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Apache</span><br>RewriteRule ^(.*)show-([0-9]+)-([0-9]+)-([0-9]+).html$ <span class="hljs-variable">$1</span>/index\.php\?m=content&amp;c=index&amp;a=show&amp;catid=<span class="hljs-variable">$2</span>&amp;<span class="hljs-built_in">id</span>=<span class="hljs-variable">$3</span>&amp;page=<span class="hljs-variable">$4</span><br>RewriteRule ^(.*)list-([0-9]+)-([0-9]+).html$ <span class="hljs-variable">$1</span>/index\.php\?m=content&amp;c=index&amp;a=lists&amp;catid=<span class="hljs-variable">$2</span>&amp;page=<span class="hljs-variable">$3</span><br>RewriteRule ^(.*)search/(.*)/(.*)$ <span class="hljs-variable">$1</span>/index\.php\?m=search&amp;q=<span class="hljs-variable">$2</span>&amp;page=<span class="hljs-variable">$3</span><br>RewriteRule ^(.*)search$ <span class="hljs-variable">$1</span>/index\.php\?m=search<br><span class="hljs-comment"># Nginx</span><br>rewrite ^/list-([0-9]+)-([0-9]+).html$  /index.php?m=content&amp;c=index&amp;a=lists&amp;catid=<span class="hljs-variable">$1</span>&amp;page=<span class="hljs-variable">$2</span> last;<br>rewrite ^/show-([0-9]+)-([0-9]+)-([0-9]+).html$  /index.php?m=content&amp;c=index&amp;a=show&amp;catid=<span class="hljs-variable">$1</span>&amp;<span class="hljs-built_in">id</span>=<span class="hljs-variable">$2</span>&amp;page=<span class="hljs-variable">$3</span> last;<br>rewrite ^/search/(.*)/(.*)$  /index.php?m=search&amp;q=<span class="hljs-variable">$1</span>&amp;page=<span class="hljs-variable">$2</span> last;<br>rewrite ^/search$ /index.php?m=search last;<br></code></pre></td></tr></table></figure><h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>如果你觉得这个博客有帮助，并愿意支持它的发展，可以通过以下方式支持我们的创作：<br><img src="/img/index/wxszm.png" alt="微信赞赏码"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Apache</tag>
+      
+      <tag>Nginx</tag>
+      
+      <tag>伪静态</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>phpcms H5上传插件</title>
+    <link href="/5.html"/>
+    <url>/5.html</url>
+    
+    <content type="html"><![CDATA[<p>PHPCMS V9是一个基于PHP5+MYSQL的开源内容管理系统，采用OOP（面向对象）方式设计，模块化开发，支持站群系统，模板制作，多发布点等功能。</p><span id="more"></span><p>phpcms H5上传插件<br>覆盖替换即可</p><h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址:"></a>下载地址:</h2><p>链接：<a href="https://qq3559727.lanzoul.com/i8z6d0cdubxa">蓝奏云</a></p><p>phpcms仓库，有惊喜！<br><a href="https://gitee.com/phpcms/phpcms">https://gitee.com/phpcms/phpcms</a></p><h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>如果你觉得这个博客有帮助，并愿意支持它的发展，可以通过以下方式支持我们的创作：<br><img src="/img/index/wxszm.png" alt="微信赞赏码"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>phpcms</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>php 判断移动端代码示例</title>
+    <link href="/4.html"/>
+    <url>/4.html</url>
+    
+    <content type="html"><![CDATA[<p>PHP，全称 Hypertext Preprocessor ，中文翻译“超文本预处理器”。 在PHP的官网是这样介绍PHP的： PHP内核由C开发，因此在语法上跟C有不少相似之处。但PHP绝对不是C。 PHP语法除了跟C有相似之处外，还跟Java、Perl比较流行的编程语言存在相似的地方。因此，如果你有上述语言基础，PHP入门会更加快速。</p><span id="more"></span><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">is_Mobile</span>(<span class="hljs-params"></span>)</span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;HTTP_VIA&#x27;</span>]) &amp;&amp; <span class="hljs-title function_ invoke__">stristr</span>(<span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;HTTP_VIA&#x27;</span>], <span class="hljs-string">&quot;wap&quot;</span>)) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125; <span class="hljs-keyword">elseif</span> (<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;HTTP_ACCEPT&#x27;</span>]) &amp;&amp; <span class="hljs-title function_ invoke__">strpos</span>(<span class="hljs-title function_ invoke__">strtoupper</span>(<span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;HTTP_ACCEPT&#x27;</span>]), <span class="hljs-string">&quot;VND.WAP.WML&quot;</span>)) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125; <span class="hljs-keyword">elseif</span> (<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;HTTP_X_WAP_PROFILE&#x27;</span>]) || <span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;HTTP_PROFILE&#x27;</span>])) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125; <span class="hljs-keyword">elseif</span> (<span class="hljs-keyword">isset</span>(<span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;HTTP_USER_AGENT&#x27;</span>]) &amp;&amp; <span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/(blackberry|configuration\/cldc|hp |hp-|htc |htc_|htc-|iemobile|kindle|midp|mmp|motorola|mobile|nokia|opera mini|opera |Googlebot-Mobile|YahooSeeker\/M1A1-R2D2|android|iphone|ipod|mobi|palm|palmos|pocket|portalmmm|ppc;|smartphone|sonyericsson|sqh|spv|symbian|treo|up.browser|up.link|vodafone|windows ce|xda |xda_)/i&#x27;</span>,<span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;HTTP_USER_AGENT&#x27;</span>])) &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">is_Mobile</span>()) &#123;<br>    <span class="hljs-variable">$banner</span> = <span class="hljs-variable">$wbanner</span>;<br> &#125;         <br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure><h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>如果你觉得这个博客有帮助，并愿意支持它的发展，可以通过以下方式支持我们的创作：<br><img src="/img/index/wxszm.png" alt="微信赞赏码"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>php</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>phpcms v9自定义表单提交后返回上一页实现方法</title>
+    <link href="/3.html"/>
+    <url>/3.html</url>
+    
+    <content type="html"><![CDATA[<p>PHPCMS V9是一个基于PHP5+MYSQL的开源内容管理系统，采用OOP（面向对象）方式设计，模块化开发，支持站群系统，模板制作，多发布点等功能。</p><span id="more"></span><p>1、找到这个文件 phpcms\modules\formguide\index.php<br>2、找到如下代码</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-title function_ invoke__">showmessage</span>(<span class="hljs-title function_ invoke__">L</span>(<span class="hljs-string">&#x27;thanks&#x27;</span>), APP_PATH);<br></code></pre></td></tr></table></figure><p>3、修改成如下代码</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-title function_ invoke__">showmessage</span>(<span class="hljs-title function_ invoke__">L</span>(<span class="hljs-string">&#x27;thanks&#x27;</span>), HTTP_REFERER);<br></code></pre></td></tr></table></figure><p>HTTP_REFERER 是页面来源的意思，也就是从哪里来回哪里去~~<br>APP_PATH是网站动态域名，也就是首页。</p><h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>如果你觉得这个博客有帮助，并愿意支持它的发展，可以通过以下方式支持我们的创作：<br><img src="/img/index/wxszm.png" alt="微信赞赏码"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>phpcms</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Golang学习笔记</title>
     <link href="/1.html"/>
     <url>/1.html</url>
