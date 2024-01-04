@@ -23,24 +23,24 @@
   
     <meta name="description" content="PHPCMS V9是一个基于PHP5+MYSQL的开源内容管理系统，采用OOP（面向对象）方式设计，模块化开发，支持站群系统，模板制作，多发布点等功能。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="phpcms v9后台登陆url地址安全性变更代码示例">
-<meta property="og:url" content="https://www.coioco.org/8.html">
+<meta property="og:title" content="phpcms v9内容页show标签代码示例">
+<meta property="og:url" content="https://www.coioco.org/10.html">
 <meta property="og:site_name" content="GZN">
 <meta property="og:description" content="PHPCMS V9是一个基于PHP5+MYSQL的开源内容管理系统，采用OOP（面向对象）方式设计，模块化开发，支持站群系统，模板制作，多发布点等功能。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.coioco.org/8/8.png">
-<meta property="article:published_time" content="2024-01-04T03:27:55.096Z">
-<meta property="article:modified_time" content="2024-01-04T03:35:24.383Z">
+<meta property="og:image" content="https://www.coioco.org/10/10.png">
+<meta property="article:published_time" content="2024-01-04T06:58:10.707Z">
+<meta property="article:modified_time" content="2024-01-04T07:00:10.471Z">
 <meta property="article:author" content="GZN">
 <meta property="article:tag" content="phpcms">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.coioco.org/8/8.png">
+<meta name="twitter:image" content="https://www.coioco.org/10/10.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>phpcms v9后台登陆url地址安全性变更代码示例 - GZN</title>
+  <title>phpcms v9内容页show标签代码示例 - GZN</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -182,7 +182,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="phpcms v9后台登陆url地址安全性变更代码示例"></span>
+            <span id="subtitle" data-typed-text="phpcms v9内容页show标签代码示例"></span>
           
         </div>
 
@@ -193,8 +193,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-01-04 11:27" pubdate>
-          2024年1月4日 上午
+        <time datetime="2024-01-04 14:58" pubdate>
+          2024年1月4日 下午
         </time>
       </span>
     
@@ -205,7 +205,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          394 字
+          342 字
         
       </span>
     
@@ -216,7 +216,7 @@
         
         
         
-          4 分钟
+          3 分钟
         
       </span>
     
@@ -261,19 +261,23 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">phpcms v9后台登陆url地址安全性变更代码示例</h1>
+            <h1 id="seo-header">phpcms v9内容页show标签代码示例</h1>
             
             
               <div class="markdown-body">
                 
                 <p>PHPCMS V9是一个基于PHP5+MYSQL的开源内容管理系统，采用OOP（面向对象）方式设计，模块化开发，支持站群系统，模板制作，多发布点等功能。</p>
 <span id="more"></span>
-<h2 id="第一步："><a href="#第一步：" class="headerlink" title="第一步："></a>第一步：</h2><p>在网站根目录创建一个文件夹，以后就要通过这个文件夹进入后台登录界面的，所以文件夹名就要取一个不易被人轻易猜到的名称。这里作为演示，我就取为  adminweb 好了。接着，在这个文件夹里新建一个文件index.php，内容为：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-title function_ invoke__">define</span>(<span class="hljs-string">&#x27;PHPCMS_PATH&#x27;</span>, <span class="hljs-title function_ invoke__">realpath</span>(<span class="hljs-title function_ invoke__">dirname</span>(<span class="hljs-keyword">__FILE__</span>) . <span class="hljs-string">&#x27;/..&#x27;</span>) . <span class="hljs-string">&#x27;/&#x27;</span>);<br><span class="hljs-keyword">include</span> PHPCMS_PATH . <span class="hljs-string">&#x27;/phpcms/base.php&#x27;</span>; <span class="hljs-comment">// pc_base::creat_app();</span><br><span class="hljs-variable">$session_storage</span> = <span class="hljs-string">&#x27;session_&#x27;</span> . pc_base :: <span class="hljs-title function_ invoke__">load_config</span>(<span class="hljs-string">&#x27;system&#x27;</span>, <span class="hljs-string">&#x27;session_storage&#x27;</span>);<br>pc_base :: <span class="hljs-title function_ invoke__">load_sys_class</span>(<span class="hljs-variable">$session_storage</span>);<br><span class="hljs-title function_ invoke__">session_start</span>();<br><span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&#x27;right_enter&#x27;</span>] = <span class="hljs-number">1</span>;<br><span class="hljs-keyword">unset</span>(<span class="hljs-variable">$session_storage</span>);<br><span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;location:../index.php?m=admin&#x27;</span>);<br></code></pre></td></tr></table></figure>
+<h2 id="内容页-当前位置"><a href="#内容页-当前位置" class="headerlink" title="内容页 - 当前位置"></a>内容页 - 当前位置</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;catpos_show_product($catid)&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="缩略图"><a href="#缩略图" class="headerlink" title="缩略图"></a>缩略图</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;$thumb&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;$title&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="关键词，循环输出"><a href="#关键词，循环输出" class="headerlink" title="关键词，循环输出"></a>关键词，循环输出</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;loop $keywords $keyword&#125;<br>	<span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span><br>	    &#123;$keyword&#125;<br>	<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> 	<br>&#123;/loop&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;$content&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;if $file&#125;<br>	<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&#123;$file&#125;&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mr-4 button&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;&#123;$title&#125; &#123;$CATEGORYS[$catid][&#x27;catname&#x27;]&#125; PDF&quot;</span></span><br><span class="hljs-tag">	    <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;_blank&quot;</span>&gt;</span><br>	    datasheet<br>	<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>&#123;/if&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="自定义字段，“，”分割，循环输出"><a href="#自定义字段，“，”分割，循环输出" class="headerlink" title="自定义字段，“，”分割，循环输出"></a>自定义字段，“，”分割，循环输出</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;php $cptds = explode(&#x27;,&#x27;,$cptd);&#125;<br>&#123;loop $cptds $td&#125;<br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>&#123;$td&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>	<br>&#123;/loop&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="样式结构复杂，根据标记分组循环输出"><a href="#样式结构复杂，根据标记分组循环输出" class="headerlink" title="样式结构复杂，根据标记分组循环输出"></a>样式结构复杂，根据标记分组循环输出</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- </span><br><span class="hljs-comment">   a:111</span><br><span class="hljs-comment">   b:222</span><br><span class="hljs-comment">   *</span><br><span class="hljs-comment">   c:111</span><br><span class="hljs-comment">   d:222</span><br><span class="hljs-comment">--&gt;</span><br>&#123;php $cell_list = explode(&#x27;*&#x27;,$ggsm);&#125;<br>&#123;loop $cell_list $cell&#125;<br>   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;cell medium-6&quot;</span>&gt;</span><br>       &#123;php $spec_list = explode(&#x27;<span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>&#x27;,$cell);&#125;<br>       &#123;loop $spec_list $spec&#125;<br>           &#123;php $p_list = explode(&#x27;:&#x27;,$spec);&#125;<br>           <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;spec&quot;</span>&gt;</span><br>               <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;mb-0&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>&#123;$p_list[0]&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>               <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;$p_list[1]&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>           <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>       &#123;/loop&#125;<br>   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>&#123;/loop&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="第二步："><a href="#第二步：" class="headerlink" title="第二步："></a>第二步：</h2><p>在 phpcms&#x2F;modules&#x2F;admin&#x2F; 文件夹里新建一个文件 MY_index.php，内容为：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-title function_ invoke__">defined</span>(<span class="hljs-string">&#x27;IN_PHPCMS&#x27;</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">exit</span>(<span class="hljs-string">&#x27;No permission resources.&#x27;</span>);<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MY_index</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">index</span> </span>&#123;<br><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span>(<span class="hljs-params"></span>) </span>&#123;<br><span class="hljs-keyword">if</span> (<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&#x27;right_enter&#x27;</span>])) &#123;<br><span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;location:./&#x27;</span>);<br><span class="hljs-keyword">exit</span>;<br>&#125;<br><span class="hljs-built_in">parent</span> :: <span class="hljs-title function_ invoke__">__construct</span>();<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">public_logout</span>(<span class="hljs-params"></span>) </span>&#123;<br><span class="hljs-variable">$_SESSION</span>[<span class="hljs-string">&#x27;right_enter&#x27;</span>] = <span class="hljs-number">0</span>;<br><span class="hljs-built_in">parent</span> :: <span class="hljs-title function_ invoke__">public_logout</span>();<br>&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>这样修改，只需要两个地方就可以了，不用分那么多步骤，而且网站后台只能通过 &#x2F;adminweb，这样就不容易被人找到你的后台入口了，这里需要注意的是，如果你用&#x2F;adminweb登录后，你按原来的&#x2F;admin.php  这种方式也能登录了，当然仅限你刚登录的浏览器。</p>
+
 <h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>如果你觉得这个博客有帮助，并愿意支持它的发展，可以通过以下方式支持我们的创作：<br><img src="/img/index/wxszm.png" srcset="/img/loading.gif" lazyload alt="微信赞赏码"></p>
 
                 
@@ -299,8 +303,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>phpcms v9后台登陆url地址安全性变更代码示例</div>
-      <div>https://www.coioco.org/8.html</div>
+      <div>phpcms v9内容页show标签代码示例</div>
+      <div>https://www.coioco.org/10.html</div>
     </div>
     <div class="license-meta">
       
@@ -344,9 +348,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/9.html" title="phpcms v9搜索search标签修改代码示例">
+                      <a href="/11.html" title="phpcms v9列表页list标签代码示例">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">phpcms v9搜索search标签修改代码示例</span>
+                        <span class="hidden-mobile">phpcms v9列表页list标签代码示例</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -354,8 +358,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/7.html" title="phpcms V9留言表单标签代码示例">
-                        <span class="hidden-mobile">phpcms V9留言表单标签代码示例</span>
+                      <a href="/9.html" title="phpcms v9搜索search标签修改代码示例">
+                        <span class="hidden-mobile">phpcms v9搜索search标签修改代码示例</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
