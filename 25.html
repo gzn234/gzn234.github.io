@@ -22,26 +22,27 @@
   <meta name="msvalidate.01" content="45FE904A1BB04114E3E67CD1213D0646" />
   <meta name="baidu-site-verification" content="codeva-AUpHku1SEx" />
   
-    <meta name="description" content="PHP QR Code是一个PHP二维码生成类库，利用它可以轻松生成二维码，官网提供了下载和多个演示demo。">
+    <meta name="description" content="CodeIgniter 是一个小巧而功能强大的 PHP 框架，支持 MVC 架构和安全性。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP类库PHP QR Code生成二维码代码示例详解">
-<meta property="og:url" content="https://www.coioco.org/23.html">
+<meta property="og:title" content="PHP CodeIgniter框架URL传递UTF-8中文编码问题解决方案及分页Page代码示例">
+<meta property="og:url" content="https://www.coioco.org/25.html">
 <meta property="og:site_name" content="GZN">
-<meta property="og:description" content="PHP QR Code是一个PHP二维码生成类库，利用它可以轻松生成二维码，官网提供了下载和多个演示demo。">
+<meta property="og:description" content="CodeIgniter 是一个小巧而功能强大的 PHP 框架，支持 MVC 架构和安全性。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.coioco.org/23/23.png">
-<meta property="article:published_time" content="2024-01-05T05:42:09.536Z">
-<meta property="article:modified_time" content="2024-01-05T05:44:45.467Z">
+<meta property="og:image" content="https://www.coioco.org/25/25.png">
+<meta property="article:published_time" content="2024-01-05T07:03:32.194Z">
+<meta property="article:modified_time" content="2024-01-05T07:07:03.444Z">
 <meta property="article:author" content="GZN">
 <meta property="article:tag" content="PHP">
+<meta property="article:tag" content="CodeIgniter">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.coioco.org/23/23.png">
+<meta name="twitter:image" content="https://www.coioco.org/25/25.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>PHP类库PHP QR Code生成二维码代码示例详解 - GZN</title>
+  <title>PHP CodeIgniter框架URL传递UTF-8中文编码问题解决方案及分页Page代码示例 - GZN</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -183,7 +184,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="PHP类库PHP QR Code生成二维码代码示例详解"></span>
+            <span id="subtitle" data-typed-text="PHP CodeIgniter框架URL传递UTF-8中文编码问题解决方案及分页Page代码示例"></span>
           
         </div>
 
@@ -194,7 +195,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-01-05 13:42" pubdate>
+        <time datetime="2024-01-05 15:03" pubdate>
           2024年1月5日 下午
         </time>
       </span>
@@ -206,7 +207,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          329 字
+          499 字
         
       </span>
     
@@ -217,7 +218,7 @@
         
         
         
-          3 分钟
+          5 分钟
         
       </span>
     
@@ -262,15 +263,32 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">PHP类库PHP QR Code生成二维码代码示例详解</h1>
+            <h1 id="seo-header">PHP CodeIgniter框架URL传递UTF-8中文编码问题解决方案及分页Page代码示例</h1>
             
             
               <div class="markdown-body">
                 
-                <p>PHP QR Code是一个PHP二维码生成类库，利用它可以轻松生成二维码，官网提供了下载和多个演示demo。</p>
+                <p>CodeIgniter 是一个小巧而功能强大的 PHP 框架，支持 MVC 架构和安全性。</p>
 <span id="more"></span>
-<p>下载官网提供的类库后，只需要使用phpqrcode.php就可以生成二维码了，当然您的PHP环境必须开启支持GD2。<br>phpqrcode.php提供了一个关键的png()方法，其中<br>参数 $text &#x3D; 表示生成二位的的信息文本；<br>参数 $outfile &#x3D; 表示是否输出二维码图片 文件，默认否；<br>参数 $level &#x3D; 表示容错率，也就是有被覆盖的区域还能识别，分别是 L，M，Q，H；<br>参数 $size &#x3D; 表示生成图片大小，默认是3；<br>参数 $margin &#x3D; 表示二维码周围边框空白区域间距值；<br>参数 $saveandprint &#x3D; 表示是否保存二维码并 显示。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">include</span> <span class="hljs-string">&#x27;phpqrcode.php&#x27;</span>; <br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">qrcode</span>(<span class="hljs-params"></span>)</span>&#123;<br>		<span class="hljs-variable">$url</span> = <span class="hljs-string">&#x27;http://m.weldhome.com.cn&#x27;</span>;<span class="hljs-comment">//二维码内容</span><br>		<span class="hljs-variable">$errorCorrectionLevel</span>= <span class="hljs-string">&#x27;L&#x27;</span>;<span class="hljs-comment">//容错级别</span><br>		<span class="hljs-variable">$matrixPointSize</span>= <span class="hljs-number">6</span>;<span class="hljs-comment">//生成图片大小</span><br>		<span class="hljs-variable">$img</span> = <span class="hljs-string">&#x27;uploads/qrcode.png&#x27;</span>;<span class="hljs-comment">//生成二维码图片</span><br>		<span class="hljs-title class_">QRcode</span>::<span class="hljs-title function_ invoke__">png</span>(<span class="hljs-variable">$url</span>,<span class="hljs-variable">$img</span>,<span class="hljs-variable">$errorCorrectionLevel</span>,<span class="hljs-variable">$matrixPointSize</span>,<span class="hljs-number">2</span>); <span class="hljs-comment">//生成二维码</span><br>		<span class="hljs-variable">$QR</span>= <span class="hljs-title function_ invoke__">base_url</span>(<span class="hljs-string">&#x27;uploads&#x27;</span>).<span class="hljs-string">&#x27;/qrcode.png&#x27;</span>;<span class="hljs-comment">//已经生成的原始二维码图</span><br>		<span class="hljs-keyword">return</span> <span class="hljs-variable">$QR</span>;<br>	&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="中文编码问题"><a href="#中文编码问题" class="headerlink" title="中文编码问题"></a>中文编码问题</h2><p>报错信息：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">The URI you <span class="hljs-keyword">submitted </span>has <span class="hljs-keyword">disallowed </span>characters.<br></code></pre></td></tr></table></figure>
+
+<p>修改步骤：</p>
+<p>1、.&#x2F;application&#x2F;config&#x2F;config.php找到$config[‘permitted_uri_chars’] </p>
+<p>修改为</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-symbol">$co</span>nfig[<span class="hljs-string">&#x27;permitted_uri_chars&#x27;</span>] =<span class="hljs-string">&#x27;a-z 0-9~%.:_\u4e00-\u9fa5&#x27;</span>;<br></code></pre></td></tr></table></figure>
+<p>2、.&#x2F;system&#x2F;core&#x2F;URI.php找到 </p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-keyword">if</span> ( ! <span class="hljs-built_in">preg_match</span>(<span class="hljs-string">&quot;|^[&quot;</span><span class="hljs-selector-class">.preg_quote</span>(<span class="hljs-variable">$this</span>-&gt;config-&gt;<span class="hljs-built_in">item</span>(<span class="hljs-string">&#x27;permitted_uri_chars&#x27;</span>)).<span class="hljs-string">&quot;]+$|i&quot;</span>, <span class="hljs-variable">$str</span>))<br></code></pre></td></tr></table></figure>
+
+<p>修改为</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-keyword">if</span> ( ! <span class="hljs-built_in">mb_ereg</span>(<span class="hljs-string">&quot;|^[&quot;</span><span class="hljs-selector-class">.preg_quote</span>(<span class="hljs-variable">$this</span>-&gt;config-&gt;<span class="hljs-built_in">item</span>(<span class="hljs-string">&#x27;permitted_uri_chars&#x27;</span>)).<span class="hljs-string">&quot;]+$|i&quot;</span>, <span class="hljs-variable">$str</span>))<br></code></pre></td></tr></table></figure>
+
+
+<p>3、如果你的文件编码全是utf-8的在搜索结果页加上</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autoit">$keyword = iconv(<span class="hljs-string">&quot;gb2312&quot;</span>,<span class="hljs-string">&quot;utf-8&quot;</span>,$this-&gt;uri-&gt;segment(<span class="hljs-number">3</span>))<span class="hljs-comment">;</span><br></code></pre></td></tr></table></figure>
+
+<p>4、大功告成，现在的您的CI支持utf-8中文地址了</p>
+<h2 id="分页Demo"><a href="#分页Demo" class="headerlink" title="分页Demo"></a>分页Demo</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">news_list</span>(<span class="hljs-params"> <span class="hljs-variable">$id</span> = <span class="hljs-string">&#x27;&#x27;</span>,<span class="hljs-variable">$search</span> = <span class="hljs-string">&#x27;s&#x27;</span> </span>)</span>&#123;<br><br>	<span class="hljs-variable">$where</span> = <span class="hljs-string">&#x27;&#x27;</span>;<br>	<span class="hljs-variable">$ids</span> = <span class="hljs-variable">$id</span>;<br>	<br>	<span class="hljs-keyword">if</span>( <span class="hljs-variable language_">$this</span>-&gt;input-&gt;<span class="hljs-title function_ invoke__">post</span>(<span class="hljs-string">&#x27;search&#x27;</span>) )&#123;<br>		<span class="hljs-variable">$search</span> = <span class="hljs-variable language_">$this</span>-&gt;input-&gt;<span class="hljs-title function_ invoke__">post</span>(<span class="hljs-string">&#x27;search&#x27;</span>);<br>	&#125;<br><br>	<span class="hljs-variable">$p_page</span> = <span class="hljs-number">10</span>;<span class="hljs-comment">//每页显示 10 个项目</span><br>	<span class="hljs-variable">$current_page</span> = <span class="hljs-variable language_">$this</span>-&gt;uri-&gt;<span class="hljs-title function_ invoke__">segment</span>(<span class="hljs-number">5</span>, <span class="hljs-number">0</span>);  <span class="hljs-comment">//获取当前分页页码数</span><br>	<br>	<span class="hljs-keyword">if</span>(<span class="hljs-variable">$current_page</span>&gt;<span class="hljs-number">1</span>)&#123;<span class="hljs-comment">//页码对应查询企业数量</span><br>			<span class="hljs-variable">$current_page</span> = ( <span class="hljs-variable">$current_page</span> - <span class="hljs-number">1</span> ) * <span class="hljs-variable">$p_page</span>;<br>			<span class="hljs-variable">$search</span> = <span class="hljs-title function_ invoke__">iconv</span>(<span class="hljs-string">&quot;gb2312&quot;</span>,<span class="hljs-string">&quot;utf-8&quot;</span>,<span class="hljs-variable">$search</span>);<br>	&#125;<span class="hljs-keyword">elseif</span>(<span class="hljs-variable">$current_page</span>==<span class="hljs-number">1</span>)&#123;<br>			<span class="hljs-variable">$current_page</span> = <span class="hljs-variable">$current_page</span> * <span class="hljs-variable">$p_page</span>;<br>	&#125;<span class="hljs-keyword">else</span>&#123;<br>				<span class="hljs-variable">$current_page</span> = <span class="hljs-number">0</span>;<br>			&#125;<br>	<span class="hljs-keyword">if</span>( <span class="hljs-title function_ invoke__">substr_count</span>( <span class="hljs-variable">$id</span>,<span class="hljs-string">&#x27;_&#x27;</span> ) )&#123;<br>		<span class="hljs-variable">$arr</span> = <span class="hljs-title function_ invoke__">explode</span>( <span class="hljs-string">&quot;_&quot;</span>,<span class="hljs-variable">$id</span> );<br>		<span class="hljs-variable">$id</span> = <span class="hljs-variable">$arr</span>[<span class="hljs-number">1</span>];<br>		<span class="hljs-variable">$modid</span> = <span class="hljs-variable">$arr</span>[<span class="hljs-number">0</span>];<br>	&#125;<span class="hljs-keyword">else</span>&#123;<br>		<span class="hljs-variable">$modid</span> = <span class="hljs-string">&#x27;&#x27;</span>;<br>	&#125;<br><br>	<span class="hljs-keyword">if</span>( <span class="hljs-variable">$search</span> <span class="hljs-keyword">and</span> <span class="hljs-variable">$search</span> !=<span class="hljs-string">&#x27;s&#x27;</span> )&#123;<br>		<br>		<span class="hljs-variable">$page</span> = <span class="hljs-string">&quot;admin/news_list/<span class="hljs-subst">$ids</span>/<span class="hljs-subst">$search</span>&quot;</span>;<span class="hljs-comment">//分页url</span><br>	&#125;<span class="hljs-keyword">else</span>&#123;<br>		<span class="hljs-variable">$page</span> = <span class="hljs-string">&quot;admin/news_list/<span class="hljs-subst">$ids</span>/s&quot;</span>;<span class="hljs-comment">//分页url</span><br>	&#125;<br>	<br>	<span class="hljs-keyword">if</span>( <span class="hljs-variable">$search</span> <span class="hljs-keyword">and</span> <span class="hljs-variable">$search</span> !=<span class="hljs-string">&#x27;s&#x27;</span> )&#123;<br>	<br>		<span class="hljs-variable">$search1</span> = <span class="hljs-title function_ invoke__">urldecode</span>( <span class="hljs-variable">$search</span> );<span class="hljs-comment">//中文解码</span><br>		<span class="hljs-variable">$where</span> = <span class="hljs-string">&quot; where title like &#x27;%<span class="hljs-subst">$search1</span>%&#x27;  &quot;</span>;	<br>	&#125;<br>	<br>	<span class="hljs-variable">$limit</span> = <span class="hljs-string">&quot; limit <span class="hljs-subst">$current_page</span>,<span class="hljs-subst">$p_page</span> &quot;</span>;<span class="hljs-comment">//分页sql</span><br>	<br>	<span class="hljs-variable">$news_list</span> = <span class="hljs-variable language_">$this</span>-&gt;admin-&gt;<span class="hljs-title function_ invoke__">news_list</span>( <span class="hljs-variable">$id</span>,<span class="hljs-variable">$modid</span>,<span class="hljs-variable">$where</span>,<span class="hljs-variable">$limit</span> );<span class="hljs-comment">//列表</span><br>	<span class="hljs-variable">$news_res</span> = <span class="hljs-variable language_">$this</span>-&gt;admin-&gt;<span class="hljs-title function_ invoke__">news_list</span>( <span class="hljs-variable">$id</span>,<span class="hljs-variable">$modid</span>,<span class="hljs-variable">$where</span> );<span class="hljs-comment">//总数</span><br>	<span class="hljs-variable">$news_page</span> = <span class="hljs-variable language_">$this</span>-&gt;admin-&gt;<span class="hljs-title function_ invoke__">page_admin</span>(<span class="hljs-variable">$current_page</span>,<span class="hljs-title function_ invoke__">count</span>(<span class="hljs-variable">$news_res</span>),<span class="hljs-variable">$p_page</span>,<span class="hljs-variable">$page</span>);<span class="hljs-comment">//分页</span><br>	<br>	<span class="hljs-variable">$data</span>[<span class="hljs-string">&#x27;news_page&#x27;</span>] = <span class="hljs-variable">$news_page</span>;<span class="hljs-comment">//视图层变量：分页</span><br>	<span class="hljs-variable">$data</span>[<span class="hljs-string">&#x27;news_list&#x27;</span>] = <span class="hljs-variable">$news_list</span>;<span class="hljs-comment">//视图层变量：企业列表</span><br>	<span class="hljs-variable">$data</span>[<span class="hljs-string">&#x27;news_res&#x27;</span>] = <span class="hljs-title function_ invoke__">count</span>( <span class="hljs-variable">$news_res</span> );<span class="hljs-comment">//视图层变量：企业总数</span><br>	<span class="hljs-variable">$data</span>[<span class="hljs-string">&#x27;id&#x27;</span>] = <span class="hljs-variable">$ids</span>;<br>	<span class="hljs-variable">$data</span>[<span class="hljs-string">&#x27;search&#x27;</span>] = <span class="hljs-variable">$search</span>;<br>	<br>	<span class="hljs-variable language_">$this</span>-&gt;load-&gt;<span class="hljs-title function_ invoke__">view</span>(<span class="hljs-string">&#x27;admin/news-list.html&#x27;</span>,<span class="hljs-variable">$data</span>);<br><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>如果你觉得这个博客有帮助，并愿意支持它的发展，可以通过以下方式支持我们的创作：<br><img src="/img/index/wxszm.png" srcset="/img/loading.gif" lazyload alt="微信赞赏码"></p>
 
@@ -287,6 +305,8 @@
       
         <a href="/tags/PHP/" class="print-no-link">#PHP</a>
       
+        <a href="/tags/CodeIgniter/" class="print-no-link">#CodeIgniter</a>
+      
     </div>
   
 </div>
@@ -297,8 +317,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>PHP类库PHP QR Code生成二维码代码示例详解</div>
-      <div>https://www.coioco.org/23.html</div>
+      <div>PHP CodeIgniter框架URL传递UTF-8中文编码问题解决方案及分页Page代码示例</div>
+      <div>https://www.coioco.org/25.html</div>
     </div>
     <div class="license-meta">
       
@@ -342,9 +362,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/24.html" title="PHP CodeIgniter框架uploadify上传后预览代码示例">
+                      <a href="/26.html" title="解决PHPMyAdmin上传文件大小限制的设置方法">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">PHP CodeIgniter框架uploadify上传后预览代码示例</span>
+                        <span class="hidden-mobile">解决PHPMyAdmin上传文件大小限制的设置方法</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -352,8 +372,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/22.html" title="phpMyAdmin修改root密码后出现访问被拒绝的问题的解决办法">
-                        <span class="hidden-mobile">phpMyAdmin修改root密码后出现访问被拒绝的问题的解决办法</span>
+                      <a href="/24.html" title="PHP CodeIgniter框架uploadify上传后预览代码示例">
+                        <span class="hidden-mobile">PHP CodeIgniter框架uploadify上传后预览代码示例</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
