@@ -24,24 +24,24 @@
   
     <meta name="description" content="PHPCMS V9是一个基于PHP5+MYSQL的开源内容管理系统，采用OOP（面向对象）方式设计，模块化开发，支持站群系统，模板制作，多发布点等功能。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="phpcms v9列表页list标签代码示例">
-<meta property="og:url" content="https://www.coioco.org/11.html">
+<meta property="og:title" content="phpcms v9首页index标签代码示例">
+<meta property="og:url" content="https://www.coioco.org/12.html">
 <meta property="og:site_name" content="GZN">
 <meta property="og:description" content="PHPCMS V9是一个基于PHP5+MYSQL的开源内容管理系统，采用OOP（面向对象）方式设计，模块化开发，支持站群系统，模板制作，多发布点等功能。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.coioco.org/11/11.png">
-<meta property="article:published_time" content="2024-01-04T07:02:52.856Z">
-<meta property="article:modified_time" content="2024-01-04T07:06:51.247Z">
+<meta property="og:image" content="https://www.coioco.org/12/12.png">
+<meta property="article:published_time" content="2024-01-05T01:03:55.605Z">
+<meta property="article:modified_time" content="2024-01-05T01:05:20.619Z">
 <meta property="article:author" content="GZN">
 <meta property="article:tag" content="phpcms">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.coioco.org/11/11.png">
+<meta name="twitter:image" content="https://www.coioco.org/12/12.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>phpcms v9列表页list标签代码示例 - GZN</title>
+  <title>phpcms v9首页index标签代码示例 - GZN</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -183,7 +183,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="phpcms v9列表页list标签代码示例"></span>
+            <span id="subtitle" data-typed-text="phpcms v9首页index标签代码示例"></span>
           
         </div>
 
@@ -194,8 +194,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-01-04 15:02" pubdate>
-          2024年1月4日 下午
+        <time datetime="2024-01-05 09:03" pubdate>
+          2024年1月5日 上午
         </time>
       </span>
     
@@ -206,7 +206,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          422 字
+          775 字
         
       </span>
     
@@ -217,7 +217,7 @@
         
         
         
-          4 分钟
+          7 分钟
         
       </span>
     
@@ -262,15 +262,19 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">phpcms v9列表页list标签代码示例</h1>
+            <h1 id="seo-header">phpcms v9首页index标签代码示例</h1>
             
             
               <div class="markdown-body">
                 
                 <p>PHPCMS V9是一个基于PHP5+MYSQL的开源内容管理系统，采用OOP（面向对象）方式设计，模块化开发，支持站群系统，模板制作，多发布点等功能。</p>
 <span id="more"></span>
-<h2 id="调取栏目名称"><a href="#调取栏目名称" class="headerlink" title="调取栏目名称"></a>调取栏目名称</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;$CATEGORYS[$catid][&#x27;catname&#x27;]&#125;<br></code></pre></td></tr></table></figure>
-<h2 id="调取栏目下信息列表-moreinfo-”1”-允许调取副表、自定义字段内容"><a href="#调取栏目下信息列表-moreinfo-”1”-允许调取副表、自定义字段内容" class="headerlink" title="调取栏目下信息列表( moreinfo&#x3D;”1” 允许调取副表、自定义字段内容)"></a>调取栏目下信息列表( moreinfo&#x3D;”1” 允许调取副表、自定义字段内容)</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;pc:content action=&quot;lists&quot; catid=&quot;$catid&quot; num=&quot;9&quot; moreinfo=&quot;1&quot; order=&quot;id DESC&quot; page=&quot;$page&quot;&#125;<br>        &#123;loop $data $r&#125;<br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;product-card&quot;</span> <span class="hljs-attr">data-scrollreveal</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&#123;$r[url]&#125;&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;&#123;$r[title]&#125; &#123;$CATEGORYS[$catid][&#x27;catname&#x27;]&#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;product-card__image&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&#123;$r[thumb]&#125;&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&#123;$r[title]&#125; &#123;$CATEGORYS[$catid][&#x27;catname&#x27;]&#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&#123;$r[url]&#125;&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;&#123;$r[title]&#125; &#123;$CATEGORYS[$catid][&#x27;catname&#x27;]&#125;&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color: #222422;&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;product-card__title&quot;</span>&gt;</span>&#123;$r[title]&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;product-card__text&quot;</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;$r[&#x27;dxyy&#x27;]&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;product-card__buttons&quot;</span>&gt;</span><br>                &#123;if $r[&#x27;file&#x27;] &#125;<br>                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&#123;$r[&#x27;file&#x27;]&#125;&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;&#123;$r[title]&#125; &#123;$CATEGORYS[$catid][&#x27;catname&#x27;]&#125; PDF&quot;</span></span><br><span class="hljs-tag">                    <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;button button--small button--outline button--outline-black&quot;</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;_blank&quot;</span> &gt;</span>Download<br>                <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>                &#123;/if&#125;<br>                <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&#123;$r[url]&#125;&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;button button--small button--outline&quot;</span></span><br><span class="hljs-tag">                    <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;&#123;$r[title]&#125; &#123;$CATEGORYS[$catid][&#x27;catname&#x27;]&#125;&quot;</span>&gt;</span>View Product<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        &#123;/loop&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;search-pagination styled-pagination&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;pagination&quot;</span>&gt;</span><br>        &#123;$pages&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>&#123;/pc&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="指定推荐位id（posid），调取选中该推荐位信息列表"><a href="#指定推荐位id（posid），调取选中该推荐位信息列表" class="headerlink" title="指定推荐位id（posid），调取选中该推荐位信息列表"></a>指定推荐位id（posid），调取选中该推荐位信息列表</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;pc:content  action=&quot;position&quot;  posid=&quot;2&quot;  order=&quot;id DESC&quot;  num=&quot;5&quot;&#125;<br>    &#123;loop $data $key $r&#125;<br>    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tile&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&#123;$CATEGORYS[$r[catid]][&#x27;url&#x27;]&#125;&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;&#123;$r[title]&#125;_&#123;$CATEGORYS[$r[catid]][&#x27;catname&#x27;]&#125;&quot;</span> <span class="hljs-attr">data-scrollreveal</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tile__image&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&#123;$r[thumb]&#125;&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&#123;$r[title]&#125;&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tile__footer&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;$CATEGORYS[$r[catid]][&#x27;catname&#x27;]&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tile-overlay&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tile-overlay__header&quot;</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;$CATEGORYS[$r[catid]][&#x27;catname&#x27;]&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tile-overlay__body&quot;</span>&gt;</span><br>            <span class="hljs-comment">&lt;!-- 自定义字段截取调用 --&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>&#123;str_cut($r[dxyy],170,&#x27;...&#x27;)&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;tile-overlay__footer&quot;</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>View Products<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>    &#123;/loop&#125;<br>&#123;/pc&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="指定栏目id（catid），调取子栏目列表"><a href="#指定栏目id（catid），调取子栏目列表" class="headerlink" title="指定栏目id（catid），调取子栏目列表"></a>指定栏目id（catid），调取子栏目列表</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;pc:content action=&quot;category&quot; catid=&quot;23&quot; num=&quot;25&quot;  order=&quot;listorder ASC&quot;&#125;<br>    &#123;loop $data $r&#125;<br>        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;icon-card&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&#123;$r[url]&#125;&quot;</span>  <span class="hljs-attr">data-scrollreveal</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;&#123;$r[catname]&#125;_&#123;if isset($SEO[&#x27;title&#x27;]) &amp;&amp; !empty($SEO[&#x27;title&#x27;])&#125;&#123;$SEO[&#x27;title&#x27;]&#125;&#123;/if&#125;&#123;$SEO[&#x27;site_title&#x27;]&#125;&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;icon-card__image&quot;</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/statics/en/images/healthcare-green-icon.png&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;icon-card__image icon-card__image_alt&quot;</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/statics/en/images/healthcare-white_icon.png&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;icon-card__heading&quot;</span>&gt;</span><br>                &#123;$r[catname]&#125;<br>            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>    &#123;/loop&#125;<br>&#123;/pc&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="指定栏目id（catid），调取子栏目下所有信息（文章模型）"><a href="#指定栏目id（catid），调取子栏目下所有信息（文章模型）" class="headerlink" title="指定栏目id（catid），调取子栏目下所有信息（文章模型）"></a>指定栏目id（catid），调取子栏目下所有信息（文章模型）</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;pc:content action=&quot;lists&quot; catid=&quot;14&quot; order=&quot;id DESC&quot;  num=&quot;3&quot; &#125;<br>   &#123;loop $data $n $r&#125;<br>       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;cell small-12 medium-6 large-4&quot;</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;basic-card&quot;</span></span><br><span class="hljs-tag">               <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&#123;$r[&#x27;url&#x27;]&#125;&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;&#123;$r[&#x27;title&#x27;]&#125;&quot;</span>&gt;</span><br>               <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;basic-card__image&quot;</span></span><br><span class="hljs-tag">                   <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;background-image: url(&#123;$r[thumb]&#125;)&quot;</span>&gt;</span><br>               <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>               <span class="hljs-tag">&lt;<span class="hljs-name">h6</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;basic-card__heading&quot;</span>&gt;</span>&#123;$r[&#x27;title&#x27;]&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h6</span>&gt;</span><br>               <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;basic-card__excerpt&quot;</span>&gt;</span>&#123;$r[&#x27;description&#x27;]&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>           <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>   &#123;/loop&#125;<br>&#123;/pc&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="判断是否为首页"><a href="#判断是否为首页" class="headerlink" title="判断是否为首页"></a>判断是否为首页</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;if !$catid&#125;<br><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>首页<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>&#123;else&#125;<br><span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&#123;if isset($SEO[&#x27;title&#x27;]) &amp;&amp; !empty($SEO[&#x27;title&#x27;])&#125;&#123;$SEO[&#x27;title&#x27;]&#125;&#123;/if&#125;&#123;$SEO[&#x27;site_title&#x27;]&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>&#123;/if&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="调用指定ID文章内容"><a href="#调用指定ID文章内容" class="headerlink" title="调用指定ID文章内容"></a>调用指定ID文章内容</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;pc:get sql=&quot;SELECT content FROM tsm_news_data where id=83 &quot; return=&quot;data&quot;&#125;<br>	&#123;php $l = explode(&#x27;,&#x27;,$data[0][&#x27;content&#x27;]);&#125;<br>    &#123;loop $l $i&#125;<br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;cell small-12 medium-2&quot;</span> <span class="hljs-attr">data-scrollreveal</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;display: block; margin-left: auto; margin-right: auto;&quot;</span></span><br><span class="hljs-tag">                <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;technology green icon&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/statics/en/images/client/&#123;$i&#125;.jpg&quot;</span></span><br><span class="hljs-tag">                <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Typical customers&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;303&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;149&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    &#123;/loop&#125;<br>&#123;/pc&#125;<br></code></pre></td></tr></table></figure>
+
 
 <h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>如果你觉得这个博客有帮助，并愿意支持它的发展，可以通过以下方式支持我们的创作：<br><img src="/img/index/wxszm.png" srcset="/img/loading.gif" lazyload alt="微信赞赏码"></p>
 
@@ -297,8 +301,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>phpcms v9列表页list标签代码示例</div>
-      <div>https://www.coioco.org/11.html</div>
+      <div>phpcms v9首页index标签代码示例</div>
+      <div>https://www.coioco.org/12.html</div>
     </div>
     <div class="license-meta">
       
@@ -310,7 +314,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年1月4日</div>
+          <div>2024年1月5日</div>
         </div>
       
       
@@ -342,9 +346,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/12.html" title="phpcms v9首页index标签代码示例">
+                      <a href="/13.html" title="phpcms v9公共头部head标签代码示例">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">phpcms v9首页index标签代码示例</span>
+                        <span class="hidden-mobile">phpcms v9公共头部head标签代码示例</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -352,8 +356,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/10.html" title="phpcms v9内容页show标签代码示例">
-                        <span class="hidden-mobile">phpcms v9内容页show标签代码示例</span>
+                      <a href="/11.html" title="phpcms v9列表页list标签代码示例">
+                        <span class="hidden-mobile">phpcms v9列表页list标签代码示例</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
