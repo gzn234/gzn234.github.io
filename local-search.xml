@@ -4,6 +4,82 @@
   
   
   <entry>
+    <title>PHPCMS V9会员系统登录成功后取消弹出框直接进入会员中心</title>
+    <link href="/30.html"/>
+    <url>/30.html</url>
+    
+    <content type="html"><![CDATA[<p>PHPCMS V9是一个基于PHP5+MYSQL的开源内容管理系统，采用OOP（面向对象）方式设计，模块化开发，支持站群系统，模板制作，多发布点等功能。</p><span id="more"></span><p>首先请打开</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php">phpcms\modules\member\index.php<br></code></pre></td></tr></table></figure><p>搜索</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-title function_ invoke__">showmessage</span>(<span class="hljs-variable">$LANG</span>[<span class="hljs-string">&#x27;login_success&#x27;</span>], <span class="hljs-variable">$forward</span>); <span class="hljs-comment">//大概在第718行；</span><br></code></pre></td></tr></table></figure><p>1.如果你不想提示，想直直接转向，则把这一行替换成： header(“location: $forward”);</p><p>2.如果你想直接转到首页，则把这一行替换成： header(“location: PHPCMS_PATH”);</p><p>3.如果你想直接转到会员管理中心，则把这一行替换成： header(“location: $MODULE[member][linkurl]”);</p><p>同理退出会员登录也可以用同样的方法实现退出后直接跳转到你想要到地方。</p><h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>如果你觉得这个博客有帮助，并愿意支持它的发展，可以通过以下方式支持我们的创作：<br><img src="/img/index/wxszm.png" alt="微信赞赏码"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>phpcms</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Phpcms V9 网站迁移更换域名方法和phpsso后台登陆验证码错误提示</title>
+    <link href="/29.html"/>
+    <url>/29.html</url>
+    
+    <content type="html"><![CDATA[<p>PHPCMS V9是一个基于PHP5+MYSQL的开源内容管理系统，采用OOP（面向对象）方式设计，模块化开发，支持站群系统，模板制作，多发布点等功能。</p><span id="more"></span><p>网站在发展的过程中，很可能多次的修改域名，那么在PHPCMS V9中我们要怎么进行设置呢？</p><p>请进行以下步骤的修改：</p><p>修改&#x2F;caches&#x2F;configs&#x2F;system.php里面所有和域名有关的，把以前的老域名修改为新域名。 </p><p>进入后台设置–&gt;站点管理，对相应的站点的域名修改为新域名。 </p><p>点击后台右上角的”更新缓存”按钮更新系统缓存。</p><p>进入内容–&gt;附件管理–&gt;附件地址替换。把附件地址批量的替换为新的地址。 </p><p>内容–&gt;批量更新URL 。把所有的文章的地址都更新一下。 </p><p>内容–&gt;管理栏目–&gt;更新栏目缓存。将栏目的链接地址改为新地址。</p><p>如果你的网站是静态页面，则需要把全站都生成一次。如果是动态页面，就不需要。</p><p>打开网站，所有链接都更改为新地址了。 </p><p>phpsso后台登陆验证码问题也和这个system.php有关，不过这个是phpsso_server&#x2F;caches&#x2F;configs里面的文件这个也要该。</p><p>最后更新下缓存。。</p><h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>如果你觉得这个博客有帮助，并愿意支持它的发展，可以通过以下方式支持我们的创作：<br><img src="/img/index/wxszm.png" alt="微信赞赏码"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>phpcms</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>PHPCMS V9“密码重试次数太多，请过-xxx分钟后重新登录！”的解决办法</title>
+    <link href="/28.html"/>
+    <url>/28.html</url>
+    
+    <content type="html"><![CDATA[<p>PHPCMS V9是一个基于PHP5+MYSQL的开源内容管理系统，采用OOP（面向对象）方式设计，模块化开发，支持站群系统，模板制作，多发布点等功能。</p><span id="more"></span><p>解决的办法：</p><p>找到文件 \phpcms\modules\admin\index.php</p><p>将如下代码注释掉：</p><figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">if</span>(<span class="hljs-symbol">$rtime</span>[<span class="hljs-string">&#x27;times&#x27;</span>] &gt;= <span class="hljs-symbol">$ma</span>xloginfailedtimes) &#123;<br>  <span class="hljs-symbol">$mi</span>nute = <span class="hljs-number">60</span>-<span class="hljs-built_in">floor</span>((SYS_TIME-<span class="hljs-symbol">$rtime</span>[<span class="hljs-string">&#x27;logintime&#x27;</span>])/<span class="hljs-number">60</span>);<br>  showmessage(L(<span class="hljs-string">&#x27;wait_1_hour&#x27;</span>,<span class="hljs-built_in">array</span>(<span class="hljs-string">&#x27;minute&#x27;</span>=&gt;<span class="hljs-symbol">$mi</span>nute)));<br>&#125;<br></code></pre></td></tr></table></figure><p>注意哦，一共是4行。</p><p>然后再次登录后台，更新全站缓存就好了。</p><h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>如果你觉得这个博客有帮助，并愿意支持它的发展，可以通过以下方式支持我们的创作：<br><img src="/img/index/wxszm.png" alt="微信赞赏码"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>phpcms</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>phpcms v9 html生成路径修改教程</title>
+    <link href="/27.html"/>
+    <url>/27.html</url>
+    
+    <content type="html"><![CDATA[<p>PHPCMS V9是一个基于PHP5+MYSQL的开源内容管理系统，采用OOP（面向对象）方式设计，模块化开发，支持站群系统，模板制作，多发布点等功能。</p><span id="more"></span><p>打开caches\configs\system.php,修改html_root的值<br>默认在51行:</p><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-string">&#x27;html_root&#x27;</span> =&gt; <span class="hljs-string">&#x27;/html&#x27;</span>,<span class="hljs-comment">//生成静态文件路径</span><br></code></pre></td></tr></table></figure><p>修改为:</p><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-string">&#x27;html_root&#x27;</span> =&gt; <span class="hljs-string">&#x27;&#x27;</span>,<span class="hljs-comment">//生成静态文件路径</span><br></code></pre></td></tr></table></figure><p>将html_root这项值添加到后台的基本设置中,让管理员可以随时修改html_root的这个值<br>1.打开phpcms\modules\admin\functions\global.func.php<br>找到:</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">&#x27;img_path&#x27;,&#x27;attachment_stat&#x27;,<br></code></pre></td></tr></table></figure><p>在后面添加:</p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">&#x27;html_root&#x27;,<br></code></pre></td></tr></table></figure><p>修改好后保存.</p><p>2.打开phpcms\modules\admin\templates\setting.tpl.php<br>找到:</p><figure class="highlight php-template"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php-template"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;120&quot;</span>&gt;</span></span><span class="language-php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">L</span>(<span class="hljs-string">&#x27;setting_upload_url&#x27;</span>)<span class="hljs-meta">?&gt;</span></span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;y-bg&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;setconfig[upload_url]&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;upload_url&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;50&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;</span></span></span><span class="language-php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-variable">$upload_url</span><span class="hljs-meta">?&gt;</span></span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span></span><br></code></pre></td></tr></table></figure><p>在其下面另起一行,加入以下代码:</p><figure class="highlight php-template"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php-template"><span class="language-xml"> <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;120&quot;</span>&gt;</span>生成静态文件路径<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;y-bg&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;input-text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;setconfig[html_root]&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;html_root&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;50&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;</span></span></span><span class="language-php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-variable">$html_root</span><span class="hljs-meta">?&gt;</span></span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> /&gt;</span>　注:默认在html目录下(即&quot;/html&quot;),要生成在网站根目录下留空即可<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span></span><br></code></pre></td></tr></table></figure><p>修改好保存即可.</p><p>现在在后台的<strong>基本设置</strong>里面,已经可以修改这个值了</p><h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>如果你觉得这个博客有帮助，并愿意支持它的发展，可以通过以下方式支持我们的创作：<br><img src="/img/index/wxszm.png" alt="微信赞赏码"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>phpcms</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>解决PHPMyAdmin上传文件大小限制的设置方法</title>
     <link href="/26.html"/>
     <url>/26.html</url>
