@@ -1,0 +1,1182 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/index/G.png">
+  <link rel="icon" href="/img/index/G.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="GZN">
+  <meta name="keywords" content="编程语言,开发技术分享,学习笔记,软件下载,python,php,java,linux,golang">
+  <meta name="bytedance-verification-code" content="pCer/e2SfSGns1RRE290" />
+  <meta name="google-site-verification" content="0osQ2nlfVBT_3HX2JiNKMGjHQR0gWfWrFEFqgnDLMGo" />
+  <meta name="msvalidate.01" content="45FE904A1BB04114E3E67CD1213D0646" />
+  <meta name="baidu-site-verification" content="codeva-AUpHku1SEx" />
+  
+    <meta name="description" content="“安卓逆向”不是一个新名词，它伴随着安卓开发而生，但是一直以来，仅限于技术圈内流行，对于非技术圈人士，往往把“APP破解”和“安卓逆向”划等号。 这是写给非技术圈人士看的，在于普及安卓逆向的概念及其应用场景。 简单地来说，安卓逆向是对已经打包好的APP进行反编译、源码分析了解APP实现逻辑的一门技术。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android 逆向学习笔记">
+<meta property="og:url" content="https://www.coioco.org/31.html">
+<meta property="og:site_name" content="GZN - 每天进步一点点">
+<meta property="og:description" content="“安卓逆向”不是一个新名词，它伴随着安卓开发而生，但是一直以来，仅限于技术圈内流行，对于非技术圈人士，往往把“APP破解”和“安卓逆向”划等号。 这是写给非技术圈人士看的，在于普及安卓逆向的概念及其应用场景。 简单地来说，安卓逆向是对已经打包好的APP进行反编译、源码分析了解APP实现逻辑的一门技术。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.coioco.org/31/31.png">
+<meta property="article:published_time" content="2024-01-28T02:32:41.330Z">
+<meta property="article:modified_time" content="2024-01-28T02:36:16.674Z">
+<meta property="article:author" content="GZN">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.coioco.org/31/31.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Android 逆向学习笔记 - GZN - 每天进步一点点</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"www.coioco.org","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>GZN</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/index/branden-skeli-ssVt_BoJV2U-unsplash.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Android 逆向学习笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-01-28 10:32" pubdate>
+          2024年1月28日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          28 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Android 逆向学习笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>“安卓逆向”不是一个新名词，它伴随着安卓开发而生，但是一直以来，仅限于技术圈内流行，对于非技术圈人士，往往把“APP破解”和“安卓逆向”划等号。 这是写给非技术圈人士看的，在于普及安卓逆向的概念及其应用场景。 简单地来说，安卓逆向是对已经打包好的APP进行反编译、源码分析了解APP实现逻辑的一门技术。</p>
+<span id="more"></span>
+
+
+<h2 id="APK结构"><a href="#APK结构" class="headerlink" title="APK结构"></a>APK结构</h2><blockquote>
+<p>apk全称Android Package，它相当于一个压缩文件，只要在电脑上将apk后缀改为rar即可解压</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>assets目录</td>
+<td>存放APK的静态资源文件，比如视频，音频，图片等</td>
+</tr>
+<tr>
+<td>lib目录</td>
+<td>armeabi-v7a基本通用所有android设备，arm64-v8a只适用于64位的android设备，X86常见用于android模拟器，其目录下的.so文件是c或c++编译的动态链接库文件</td>
+</tr>
+<tr>
+<td>META-INF目录</td>
+<td>保存应用的签名信息，签名信息可以验证APK文件的完整性，相当于APK的身份证(验证文件是否又被修改)</td>
+</tr>
+<tr>
+<td>res目录</td>
+<td>res目录存放资源文件，包括图片，字符串等等，APK的脸蛋由他的layout文件设计</td>
+</tr>
+<tr>
+<td>AndroidMainfest.xml文件</td>
+<td>APK的应用清单信息，它描述了应用的名字，版本，权限，引用的库文件等等信息</td>
+</tr>
+<tr>
+<td>classes.dex文件</td>
+<td>classes.dex是iava源码编译后生成的iava字节码文件，APK运行的主要逻辑</td>
+</tr>
+<tr>
+<td>resources.arsc文件</td>
+<td>resources.arsc是编泽后的二进制资源文件，它是一个映射表，映着资源和id，通过R文件中的id就可以找到对应的资源</td>
+</tr>
+</tbody></table>
+<h2 id="初识AndroidMainfest-xml"><a href="#初识AndroidMainfest-xml" class="headerlink" title="初识AndroidMainfest.xml"></a>初识AndroidMainfest.xml</h2><blockquote>
+<p>AndroidManifest.xml文件是整个应用程序的信息描述文件，定义了应用程序中包合的Activity,Service,Content provider和BroadcastReceiver组件信息。每个应用程序在根目录下必须包合一个AndroidManifest.xml文件，且文件名不能修改，它描述了package中暴露的组件，他们各自的实现类，各种能被处理的数据和启动位置</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>versionCode</td>
+<td>版本号，主要用来更新，例如:12</td>
+</tr>
+<tr>
+<td>versionName</td>
+<td>版本名，给用户看的，例如:1.2</td>
+</tr>
+<tr>
+<td>package</td>
+<td>包名，例如: com.zj.52pjdemo</td>
+</tr>
+<tr>
+<td>uses-permission android:name&#x3D;””</td>
+<td>应用权限，例如:android.permission.INTERNET代表网络权限</td>
+</tr>
+<tr>
+<td>android:label&#x3D;”@string&#x2F;app_name”</td>
+<td>应用名称</td>
+</tr>
+<tr>
+<td>android:icon&#x3D;”@mipmap&#x2F;ic launcher”</td>
+<td>应用图标路径</td>
+</tr>
+<tr>
+<td>android:debuggable&#x3D;”true”</td>
+<td>应用是否开启debug权限</td>
+</tr>
+</tbody></table>
+<h2 id="什么是JVM、Dalvik、ART"><a href="#什么是JVM、Dalvik、ART" class="headerlink" title="什么是JVM、Dalvik、ART"></a>什么是JVM、Dalvik、ART</h2><blockquote>
+<p>JVM是JAVA虚拟机，运行JAVA字节码程序。<br>Dalvik是Google专门为Android设计的一个虚拟机，Dalvik有专属的文件执行格式dex(Dalvik executable)。<br>Art(Android Runtime)相当于Dalvik的升级版，本质与Dalvik无异。</p>
+</blockquote>
+<h2 id="JAVA虚拟机"><a href="#JAVA虚拟机" class="headerlink" title="JAVA虚拟机"></a>JAVA虚拟机</h2><blockquote>
+<p>Java虚拟机 &#x3D;&gt;Java字节码<br>基于栈架构<br>persist.sys.dalvik.vm.lib</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JNI_GetDefaultJavaVMInitArgs</td>
+<td>获取虚拟机的默认初始化参数</td>
+</tr>
+<tr>
+<td>JNI_CreateJavaVM</td>
+<td>在进程中创建虚拟机实例</td>
+</tr>
+<tr>
+<td>JNI_GetCreatedJavaVMs</td>
+<td>获取进程中创建的虚拟机实例</td>
+</tr>
+</tbody></table>
+<h2 id="dalvik虚拟机-jit机制"><a href="#dalvik虚拟机-jit机制" class="headerlink" title="dalvik虚拟机(jit机制)"></a>dalvik虚拟机(jit机制)</h2><blockquote>
+<p>Android 5.0以下，dalvik字节码，dalvik可执行文件体积更小，基于寄存器架构<br>Dalvik虚拟机&#x3D;&gt;dex字节码<br>libdvm.so</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JNI_GetDefaultJavaVMInitArgs</td>
+<td>获取虚拟机的默认初始化参数</td>
+</tr>
+<tr>
+<td>JNI_CreateJavaVM</td>
+<td>在进程中创建虚拟机实例</td>
+</tr>
+<tr>
+<td>JNI_GetCreatedJavaVMs</td>
+<td>获取进程中创建的虚拟机实例</td>
+</tr>
+<tr>
+<td>&#x2F;system&#x2F;bin&#x2F;dexopt</td>
+<td>jit机制</td>
+</tr>
+</tbody></table>
+<h2 id="art虚拟机-aot机制"><a href="#art虚拟机-aot机制" class="headerlink" title="art虚拟机(aot机制)"></a>art虚拟机(aot机制)</h2><blockquote>
+<p>Android 5.0版本及以上<br>ART虚拟机&#x3D;&gt;本地机器码<br>libart.so</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JNI_GetDefaultJavaVMInitArgs</td>
+<td>获取虚拟机的默认初始化参数</td>
+</tr>
+<tr>
+<td>JNI_CreateJavaVM</td>
+<td>在进程中创建虚拟机实例</td>
+</tr>
+<tr>
+<td>JNI_GetCreatedJavaVMs</td>
+<td>获取进程中创建的虚拟机实例</td>
+</tr>
+<tr>
+<td>&#x2F;system&#x2F;bin&#x2F;dex2oat</td>
+<td>aot机制</td>
+</tr>
+<tr>
+<td>&#x2F;system&#x2F;app；&#x2F;data&#x2F;app；&#x2F;system&#x2F;framework</td>
+<td>系统启动</td>
+</tr>
+</tbody></table>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><blockquote>
+<p>.dex &#x3D;&gt;dexopt&#x3D;&gt;.odex		dalvik加载执行的odex文件<br>.dex&#x3D;&gt;dex2oat&#x3D;&gt;.oat    	art加载执行的是oat文件</p>
+</blockquote>
+<h2 id="APK安装流程"><a href="#APK安装流程" class="headerlink" title="APK安装流程"></a>APK安装流程</h2><blockquote>
+<p>应用安装的流程及路径<br>应用安装涉及到如下几个目录</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>system&#x2F;app</td>
+<td>系统自带的应用程序，获得adb root权限才能删除</td>
+</tr>
+<tr>
+<td>data&#x2F;app</td>
+<td>用户程序安装的目录。安装时把apk文件复制到此目录</td>
+</tr>
+<tr>
+<td>data&#x2F;data</td>
+<td>存放应用程序的数据</td>
+</tr>
+<tr>
+<td>data&#x2F;dalvik-cache</td>
+<td>将apk中的dex文件安装到dalvik-cache目录下(dex文件是dalvik虚拟机的可执行文件，其大小约为原始apk文件大小的四分之一)</td>
+</tr>
+</tbody></table>
+<h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><blockquote>
+<p>复制APK安装包到data&#x2F;app目录下，解压并扫描安装包，把dex文件(Dalvik字节码)保存到dalvik-cache目录，并在data&#x2F;data目录下创建对应的应用数据目录。</p>
+</blockquote>
+<h3 id="卸载过程"><a href="#卸载过程" class="headerlink" title="卸载过程"></a>卸载过程</h3><blockquote>
+<p>删除安装过程中在上述三个目录下创建的文件及目录</p>
+</blockquote>
+<h2 id="smali及其语法"><a href="#smali及其语法" class="headerlink" title="smali及其语法"></a>smali及其语法</h2><blockquote>
+<p>smali是Dalvik的寄存器语言，smali代码是dex反编译而来的</p>
+</blockquote>
+<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.class</td>
+<td>类名</td>
+</tr>
+<tr>
+<td>.super</td>
+<td>父类名，继承的上级类名名称</td>
+</tr>
+<tr>
+<td>.source</td>
+<td>源名</td>
+</tr>
+<tr>
+<td>.field</td>
+<td>变量</td>
+</tr>
+<tr>
+<td>.register</td>
+<td>寄存器</td>
+</tr>
+<tr>
+<td>.method</td>
+<td>方法名</td>
+</tr>
+<tr>
+<td>.end method</td>
+<td>方法名的结束</td>
+</tr>
+<tr>
+<td>public</td>
+<td>公有</td>
+</tr>
+<tr>
+<td>protected</td>
+<td>半公开，只有同一家人才能用</td>
+</tr>
+<tr>
+<td>private</td>
+<td>私有，只能自己使用</td>
+</tr>
+<tr>
+<td>.parameter</td>
+<td>方法参数</td>
+</tr>
+<tr>
+<td>.prologue</td>
+<td>方法开始</td>
+</tr>
+<tr>
+<td>.line xxx</td>
+<td>位于第xxx行</td>
+</tr>
+</tbody></table>
+<h3 id="数据类型对应"><a href="#数据类型对应" class="headerlink" title="数据类型对应"></a>数据类型对应</h3><table>
+<thead>
+<tr>
+<th>smali类型</th>
+<th>java类型</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>V</td>
+<td>void</td>
+<td>无返回值</td>
+</tr>
+<tr>
+<td>Z</td>
+<td>boolean</td>
+<td>布尔值类型，返回0或1</td>
+</tr>
+<tr>
+<td>B</td>
+<td>byte</td>
+<td>字节类型，返回字节</td>
+</tr>
+<tr>
+<td>S</td>
+<td>short</td>
+<td>短整数类型，返回数字</td>
+</tr>
+<tr>
+<td>C</td>
+<td>char</td>
+<td>字符类型，返回字符</td>
+</tr>
+<tr>
+<td>I</td>
+<td>int</td>
+<td>整数类型，返回数字</td>
+</tr>
+<tr>
+<td>J</td>
+<td>long(64位需要2个寄存器存储)</td>
+<td>长整数类型，返回数字</td>
+</tr>
+<tr>
+<td>F</td>
+<td>float</td>
+<td>单浮点类型，返回数字</td>
+</tr>
+<tr>
+<td>D</td>
+<td>double(64位需要2个寄存器存储)</td>
+<td>双浮点类型，返回数字</td>
+</tr>
+<tr>
+<td>string</td>
+<td>String</td>
+<td>文本类型，返回字符串</td>
+</tr>
+<tr>
+<td>Lxxx&#x2F;xxx&#x2F;xxx</td>
+<td>object</td>
+<td>对象类型，返回对象</td>
+</tr>
+</tbody></table>
+<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>const</td>
+<td>重写整数属性，真假属性内容，只能是数字类型</td>
+</tr>
+<tr>
+<td>const-string</td>
+<td>重写字符串内容</td>
+</tr>
+<tr>
+<td>const-wide</td>
+<td>重写长整数类型，多用于修改到期时间</td>
+</tr>
+<tr>
+<td>return</td>
+<td>返回指令</td>
+</tr>
+<tr>
+<td>if-eq</td>
+<td>全称equal(a&#x3D;b)，比较寄存器ab内容，相同则跳</td>
+</tr>
+<tr>
+<td>if-ne</td>
+<td>全称not equal(a!&#x3D;b)，ab内容不相同则跳</td>
+</tr>
+<tr>
+<td>if-egz</td>
+<td>全称equalzero(a&#x3D;0)，z即是0的标记，a等于0则跳</td>
+</tr>
+<tr>
+<td>if-nez</td>
+<td>全称notequalzero(a!&#x3D;0)，a不等于0则跳</td>
+</tr>
+<tr>
+<td>if-ge</td>
+<td>全称garden equal(a&gt;&#x3D;b)，a大于或等于则跳</td>
+</tr>
+<tr>
+<td>if-le</td>
+<td>全称little equal(a&lt;&#x3D;b)，a小于或等于则跳</td>
+</tr>
+<tr>
+<td>goto</td>
+<td>强制跳到指定位置</td>
+</tr>
+<tr>
+<td>switch</td>
+<td>分支跳转，一般会有多个分支线，并根据指令跳转到适当位置</td>
+</tr>
+<tr>
+<td>iget</td>
+<td>获取寄存器数据</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>其余指令可用语法工具查询<br>定位方法:搜索单窗关键字、抓取按钮id</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//一个私有、静态、不可变的方法方法名</span><br>.method <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> onCreate$lambda-<span class="hljs-number">2</span>(Lkotlin/jvm/internal/Ref$IntRef;Lcom/zj/wuaipojie/ui/ChallengeSecond;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/view/View;)Z <span class="hljs-comment">//(这里面是方法的参数)这里是方法返回值类型，表示布尔值类型，返回假或真</span><br>    .registers <span class="hljs-number">7</span> <span class="hljs-comment">//寄存器数量</span><br><br>    .line <span class="hljs-number">33</span> <span class="hljs-comment">//代码所在的行数</span><br>    iget p0, p0, Lkotlin/jvm/internal/Ref$IntRef;-&gt;element:I <span class="hljs-comment">//读p0(第一个参数，参考存器知识)中element的值赋值给p0</span><br><br>    const/<span class="hljs-number">4</span> p5, <span class="hljs-number">0x1</span> <span class="hljs-comment">//p5赋值1</span><br><br>    const/<span class="hljs-number">16</span> v0, <span class="hljs-number">0xa</span> <span class="hljs-comment">//v0赋值10，在16进制里a表示10</span><br><br>    <span class="hljs-keyword">if</span>-ge p0, v0, :cond_15 <span class="hljs-comment">//判断p0的值是否大于或等于v0的值(即p0的值是否大于或等于10)，如果大于或等于则跳转到:cond_15</span><br><br>    .line <span class="hljs-number">34</span> <span class="hljs-comment">//以下是常见的Toast弹窗代码</span><br>    move-object p0, p1<br><br>    check-cast p0, Landroid/content/Context; <span class="hljs-comment">//检查Context对象引用</span><br><br>    const-string v0, <span class="hljs-string">&quot;\u8bf7\u5148\u83b7\u53d610\u4e2a\u786c\u5e01\u54e6&quot;</span> <span class="hljs-comment">//弹窗文本信息，把&quot;&quot;里的字符串数据赋值给p0</span><br><br>    check-cast v0, Ljava/lang/CharSequence; <span class="hljs-comment">//检查charsequence对象引用</span><br><br>    invoke-<span class="hljs-keyword">static</span> &#123;p0, v0, p5&#125;, Landroid/widget/Toast;-&gt;makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;<br><span class="hljs-comment">//将单窗文本、显示时间等信息传给p1</span><br><br>	move-result-object p0 <span class="hljs-comment">//结果传递给po</span><br>	<br>	invoke-virtual &#123;p0&#125;, Landroid/widget/Toast;-&gt;show()V <span class="hljs-comment">//Toast;-&gt;show()显示弹窗</span><br>	<br>	goto :goto_50 <span class="hljs-comment">//跳转到:goto_50</span><br>	<br>	:cond_15 <span class="hljs-comment">//跳转的一个地址</span><br>	<br>	const p0, <span class="hljs-number">0x7f0d0018</span> <span class="hljs-comment">//在arsc中的id索引，这个值可以进行查询</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><blockquote>
+<p>在smali里的所有操作都必须经过寄存器来进行：<br>本地寄存器用v开头数字结尾的符号来表示，如v0、v1、v2。<br>参数寄存器则使用p开头数字结尾的符号来表示，如p0、p1、p2。<br>特别注意的是，p0不一定是函数中的第一个参数，在非static函数中，p0代指”this”，p1表示函数的第一个参数，p2代表函数中的第二个参数。而在static函数中p0才对应第一个参数(因为Java的static方法中没有this方法)</p>
+</blockquote>
+<h2 id="安卓四大组件"><a href="#安卓四大组件" class="headerlink" title="安卓四大组件"></a>安卓四大组件</h2><table>
+<thead>
+<tr>
+<th>组件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Activity(活动)</td>
+<td>在应用中的一个Activity可以用来表示一个界面，意思可以理解为“活动”，即一个活动开始，代表 Activity组件启动，活动结束，代表一Activity的生命周期结束。一个Android应用必须通过Actvity来运行和启动，Activity的生命周期交给系统统一管理</td>
+</tr>
+<tr>
+<td>Service(服务)</td>
+<td>Service它可以在后台执行长时间运行操作而没有用户界面的应用组件，不依赖任何用户界面，例如后台播放音乐，后台下载文件等。</td>
+</tr>
+<tr>
+<td>Broadcast Receiver(广播接收器)</td>
+<td>一个用于接收广播信息，并做出对应处理的组件。比如我们常见的系统广播: 通知时区改变、电量低、用户改变了语言选项等。</td>
+</tr>
+<tr>
+<td>Content Provider(内容提供者)</td>
+<td>作为应用程序之间唯一的共享数据的途径，Content Provider主要的功能就是存储并检索数据以及向其他应用程序提供访问数据的接口Android内置的许多数据都是使用Content Provider形式，供开发者调用的(如视频，音频，图片，通讯录等)</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>启动广告流程:启动Activity-&gt;广告Activity-&gt;主页Activity<br>修改方法：1修改加载时间；2.Acitivity切换定位，修改Intent的Activity类名</p>
+</blockquote>
+<h2 id="Activity生命周期"><a href="#Activity生命周期" class="headerlink" title="Activity生命周期"></a>Activity生命周期</h2><table>
+<thead>
+<tr>
+<th>函数名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onCreat()</td>
+<td>一个Activity启动后第一个被调用的函数，常用来在此方法中进行Activity的一些初始化操作。例如创建View，绑定数据，注册监听，加载参数等</td>
+</tr>
+<tr>
+<td>onStart()</td>
+<td>当Activity显示在屏幕上时，此方法被调用但此时还无法进行与用户的交互操作。</td>
+</tr>
+<tr>
+<td>onResume()</td>
+<td>这个方法在onStart()之后调用，也就是在Activity准备好与用户进行交互的时候调用，此时的Activity一定位于Activity栈顶，处于运行状态</td>
+</tr>
+<tr>
+<td>onPause()</td>
+<td>这个方法是在系统准备去启动或者恢复另外一个Activity的时候调用，通常在这个方法中执行一些释放资源的方法，以及保存一些关键数据</td>
+</tr>
+<tr>
+<td>onStop()</td>
+<td>文个方法是在Activitv完全不可见的时候调用</td>
+</tr>
+<tr>
+<td>onDestroy()</td>
+<td>这个方法在Activity销毁之前调用，之后Adivity的状态为销毁状态</td>
+</tr>
+<tr>
+<td>onRestart()</td>
+<td>当Activity从停止stop状态恢进入start状态时调用状态</td>
+</tr>
+</tbody></table>
+<h2 id="双开及原理"><a href="#双开及原理" class="headerlink" title="双开及原理"></a>双开及原理</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>修改包名</td>
+<td>让手机系统认为这是2个APP，这样的话就能生成2个数据存储路径，此时的多开就等于你打开了两个互不干扰的APP</td>
+</tr>
+<tr>
+<td>修改Framework</td>
+<td>对于有系统修改权限的厂商，可以修改Framework来实现双开的目的，例如: 小米自带多开</td>
+</tr>
+<tr>
+<td>通过虚拟化技术实现</td>
+<td>虚拟Framework层、虚拟文件系统、模拟Android对组件的管理、虚拟应用进程管理等一整套虚拟技术，将APK复制一份到虚拟空间中运行，例如:平行空间</td>
+</tr>
+<tr>
+<td>以插件机制运行</td>
+<td>利用反射替换，动态代理，hook了系统的大部分与system-server进程通讯的函数，以此作为”欺上瞒下”的目的，欺系统“以为”只有一个apk在运行，瞒过插件让其“认为”自己已经安装。例如: VirtualApp</td>
+</tr>
+</tbody></table>
+<h2 id="常用CMD命令"><a href="#常用CMD命令" class="headerlink" title="常用CMD命令"></a>常用CMD命令</h2><blockquote>
+<p>场景：当前所连接的安卓模拟器</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>adb devices</td>
+<td>当前与模拟器的连接状态</td>
+</tr>
+<tr>
+<td>adb shell dumpsys activity top</td>
+<td>当前活动界面的所有信息</td>
+</tr>
+</tbody></table>
+<h2 id="快速定位关键代码"><a href="#快速定位关键代码" class="headerlink" title="快速定位关键代码"></a>快速定位关键代码</h2><h3 id="1、分析流程"><a href="#1、分析流程" class="headerlink" title="1、分析流程"></a>1、分析流程</h3><pre><code class="hljs">搜索特征字符串
+搜索关键 api
+通过方法名来判断方法的功能
+</code></pre>
+<h3 id="2-快速定位关键代码"><a href="#2-快速定位关键代码" class="headerlink" title="2. 快速定位关键代码"></a>2. 快速定位关键代码</h3><pre><code class="hljs">反编译 APK 程序
+ 		AndroidManifest.xml=&gt;包名/系统版本/组件
+程序的主 activity(程序入口界面)
+        每个 Android 程序有且只有一个主 Activity
+        分析程序的执行流程
+需重点关注的 application
+        application 执行时间
+        授权验证
+</code></pre>
+<h3 id="3-定位关键代码的技巧"><a href="#3-定位关键代码的技巧" class="headerlink" title="3.定位关键代码的技巧"></a>3.定位关键代码的技巧</h3><pre><code class="hljs">信息反馈法(资源 id/字符串)
+特征函数法(api 函数)
+顺序查看法(分析程序执行流程/病毒分析)
+代码注入法(动态调式/插入 log/查看 logcat/分析加解密)
+栈跟踪法(动态调式/函数调用流程)
+Method Profiling(方法剖析=&gt;动态调式/热点分析//函数调用流程)
+</code></pre>
+<h2 id="关键点方法名"><a href="#关键点方法名" class="headerlink" title="关键点方法名"></a>关键点方法名</h2><pre><code class="hljs">和游戏方法名onResult，onchinabilling，resulton，Paycenter，Callback
+爱游戏方法名:paySuccess (成功) payFailed (失败) payCancel (成功)
+沃游戏方法名:OnPayResult，PyaResulton，Activity，result，callback
+4399游戏方法名:notifydelivergoods
+支付宝和银行卡方法名:handle，message
+移动MM方法名:onBillingFinish，Billing，CallBack
+360支付: onfinished onActiv ityresult
+支付宝搜索字符串: 9000
+咪咕游戏搜索常量:onresult
+    如果没有失败提示：类：PayCallback，进入再搜索 onresult
+发送短信权:android.permission.SEND SMS
+锁定支付模式关键字符串:CHINA TELECOM
+</code></pre>
+<h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>如果你觉得这个博客有帮助，并愿意支持它的发展，可以通过以下方式支持我们的创作：<br><img src="/img/index/wxszm.png" srcset="/img/loading.gif" lazyload alt="微信赞赏码"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Android/" class="print-no-link">#Android</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Android 逆向学习笔记</div>
+      <div>https://www.coioco.org/31.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>GZN</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年1月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/30.html" title="PHPCMS V9会员系统登录成功后取消弹出框直接进入会员中心">
+                        <span class="hidden-mobile">PHPCMS V9会员系统登录成功后取消弹出框直接进入会员中心</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+  <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "kgfw0av5qy");
+  </script>
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
