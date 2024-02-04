@@ -1,3 +1,4 @@
+https://www.coioco.org/32.html
 https://www.coioco.org/31.html
 https://www.coioco.org/30.html
 https://www.coioco.org/29.html
@@ -40,6 +41,7 @@ https://www.coioco.org/tags/phpMyAdmin/
 https://www.coioco.org/tags/PHP/
 https://www.coioco.org/tags/CodeIgniter/
 https://www.coioco.org/tags/Android/
+https://www.coioco.org/tags/Python%E6%BA%90%E7%A0%81/
 https://www.coioco.org/tags/php/
 https://www.coioco.org/tags/Apache/
 https://www.coioco.org/tags/Nginx/

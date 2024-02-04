@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>全本小说自动下载Python源码</title>
+    <link href="/32.html"/>
+    <url>/32.html</url>
+    
+    <content type="html"><![CDATA[<p>“免责声明： 1.用户应当自行承担使用网络爬虫的风险和后果。 2.用户必须遵守相关法律法规，不得利用网络爬虫进行非法活动。 3.用户应当尊重他人的个人隐私和知识产权，不得侵犯他人合法权益。</p><span id="more"></span><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> lxml <span class="hljs-keyword">import</span> etree<br><br>name = <span class="hljs-string">&#x27;全球废土：开局觉醒科技之心&#x27;</span><br>main_url = <span class="hljs-string">&#x27;https://www.xiaoyaoshuge.com&#x27;</span><br>url = <span class="hljs-string">&#x27;https://www.xiaoyaoshuge.com/chuanyuexiaoshuo/778/&#x27;</span><br>ua = &#123;<br>    <span class="hljs-string">&#x27;User-Agent&#x27;</span>:<span class="hljs-string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36&#x27;</span><br>&#125;<br>char = <span class="hljs-string">&#x27;utf-8&#x27;</span><br><br>res = requests.get(url,headers=ua)<br>res.encoding = char<br><br>e = etree.HTML(res.text)<br>url_list = e.xpath(<span class="hljs-string">&#x27;/html/body/div[1]/div[4]/ul/li/a/@href&#x27;</span>)<br>txt = <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-keyword">for</span> url <span class="hljs-keyword">in</span> url_list:<br>    <span class="hljs-built_in">print</span>(main_url + url)<br>    res_s = requests.get(main_url + url,headers=ua)<br>    res_s.encoding = char<br>    e_s = etree.HTML(res_s.text)<br>    title = e_s.xpath(<span class="hljs-string">&#x27;/html/body/div[1]/div[1]/h1/text()&#x27;</span>)<br>    ct = <span class="hljs-string">&#x27;\n&#x27;</span>.join(e_s.xpath(<span class="hljs-string">&#x27;/html/body/div[1]/div[2]/div[@class=&quot;m-post&quot;]/p/text()&#x27;</span>))<br>    txt = txt  + <span class="hljs-string">f&quot;<span class="hljs-subst">&#123;title[<span class="hljs-number">0</span>]&#125;</span>\n\n<span class="hljs-subst">&#123;ct&#125;</span>\n\n&quot;</span><br>    <span class="hljs-built_in">print</span>(title)<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(name + <span class="hljs-string">&#x27;txt&#x27;</span>,<span class="hljs-string">&#x27;a&#x27;</span>,encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>        f.write(title[<span class="hljs-number">0</span>] + <span class="hljs-string">&#x27;\n\n&#x27;</span> + ct + <span class="hljs-string">&#x27;\n\n&#x27;</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;完成~~~&#x27;</span>)<br>res.close()<br><br></code></pre></td></tr></table></figure><h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>如果你觉得这个博客有帮助，并愿意支持它的发展，可以通过以下方式支持我们的创作：<br><img src="/img/index/wxszm.png" alt="微信赞赏码"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Python源码</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Android 逆向学习笔记</title>
     <link href="/31.html"/>
     <url>/31.html</url>

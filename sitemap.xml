@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.coioco.org/32.html</loc>
+    
+    <lastmod>2024-02-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.coioco.org/31.html</loc>
     
     <lastmod>2024-01-28</lastmod>
@@ -283,7 +292,7 @@
 
   <url>
     <loc>https://www.coioco.org/</loc>
-    <lastmod>2024-02-01</lastmod>
+    <lastmod>2024-02-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -291,98 +300,105 @@
   
   <url>
     <loc>https://www.coioco.org/tags/Golang/</loc>
-    <lastmod>2024-02-01</lastmod>
+    <lastmod>2024-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.coioco.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2024-02-01</lastmod>
+    <lastmod>2024-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.coioco.org/tags/phpcms/</loc>
-    <lastmod>2024-02-01</lastmod>
+    <lastmod>2024-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.coioco.org/tags/tinkphp/</loc>
-    <lastmod>2024-02-01</lastmod>
+    <lastmod>2024-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.coioco.org/tags/Modbus/</loc>
-    <lastmod>2024-02-01</lastmod>
+    <lastmod>2024-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.coioco.org/tags/ajax/</loc>
-    <lastmod>2024-02-01</lastmod>
+    <lastmod>2024-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.coioco.org/tags/phpMyAdmin/</loc>
-    <lastmod>2024-02-01</lastmod>
+    <lastmod>2024-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.coioco.org/tags/PHP/</loc>
-    <lastmod>2024-02-01</lastmod>
+    <lastmod>2024-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.coioco.org/tags/CodeIgniter/</loc>
-    <lastmod>2024-02-01</lastmod>
+    <lastmod>2024-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.coioco.org/tags/Android/</loc>
-    <lastmod>2024-02-01</lastmod>
+    <lastmod>2024-02-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.coioco.org/tags/Python%E6%BA%90%E7%A0%81/</loc>
+    <lastmod>2024-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.coioco.org/tags/php/</loc>
-    <lastmod>2024-02-01</lastmod>
+    <lastmod>2024-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.coioco.org/tags/Apache/</loc>
-    <lastmod>2024-02-01</lastmod>
+    <lastmod>2024-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.coioco.org/tags/Nginx/</loc>
-    <lastmod>2024-02-01</lastmod>
+    <lastmod>2024-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.coioco.org/tags/%E4%BC%AA%E9%9D%99%E6%80%81/</loc>
-    <lastmod>2024-02-01</lastmod>
+    <lastmod>2024-02-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
