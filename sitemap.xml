@@ -308,13 +308,6 @@
 
   
   <url>
-    <loc>https://www.coioco.org/tags/phpcms/</loc>
-    <lastmod>2024-02-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.coioco.org/tags/Golang/</loc>
     <lastmod>2024-02-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -323,6 +316,13 @@
   
   <url>
     <loc>https://www.coioco.org/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2024-02-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.coioco.org/tags/phpcms/</loc>
     <lastmod>2024-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -350,14 +350,14 @@
   </url>
   
   <url>
-    <loc>https://www.coioco.org/tags/phpMyAdmin/</loc>
+    <loc>https://www.coioco.org/tags/PHP/</loc>
     <lastmod>2024-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.coioco.org/tags/PHP/</loc>
+    <loc>https://www.coioco.org/tags/phpMyAdmin/</loc>
     <lastmod>2024-02-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
