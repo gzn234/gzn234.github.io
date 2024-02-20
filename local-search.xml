@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>Python源码_豆瓣电影排行榜数据保存到Excel</title>
+    <link href="/33.html"/>
+    <url>/33.html</url>
+    
+    <content type="html"><![CDATA[<p>“免责声明： 1.用户应当自行承担使用网络爬虫的风险和后果。 2.用户必须遵守相关法律法规，不得利用网络爬虫进行非法活动。 3.用户应当尊重他人的个人隐私和知识产权，不得侵犯他人合法权益。</p><span id="more"></span><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br>url = <span class="hljs-string">&#x27;https://movie.douban.com/j/chart/top_list?type=17&amp;interval_id=100:90&amp;action=&amp;start=0&amp;limit=20&#x27;</span><br>ua = &#123;<span class="hljs-string">&#x27;User-Agent&#x27;</span>: <span class="hljs-string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36&#x27;</span>&#125;<br>char = <span class="hljs-string">&#x27;utf-8&#x27;</span><br>res = requests.get(url,headers=ua)<br>res.encoding = char<br>dat = pd.read_json(res.text)<br>w = pd.ExcelWriter(<span class="hljs-string">&#x27;dat.xlsx&#x27;</span>)<br>dat.to_excel(w,sheet_name=<span class="hljs-string">&#x27;原始数据&#x27;</span>)<br>w.close()<br><br></code></pre></td></tr></table></figure><h2 id="打赏"><a href="#打赏" class="headerlink" title="打赏"></a>打赏</h2><p>如果你觉得这个博客有帮助，并愿意支持它的发展，可以通过以下方式支持我们的创作：<br><img src="/img/index/wxszm.png" alt="微信赞赏码"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Python源码</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>全本小说自动下载Python源码</title>
     <link href="/32.html"/>
     <url>/32.html</url>
